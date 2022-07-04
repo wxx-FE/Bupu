@@ -1,14 +1,12 @@
 import {createApp} from 'vue'
 import App from './App'
+import "@/assets/styles/globals.scss"
 
 const app = createApp(App)
 
 //状态管理
-import {createPinia} from "pinia";
-import piniaPersist from "pinia-plugin-persist"
+import pinia from "@/store"
 
-const pinia = createPinia()
-pinia.use(piniaPersist)
 app.use(pinia)
 
 //UI框架

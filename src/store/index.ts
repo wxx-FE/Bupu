@@ -1,27 +1,9 @@
-import {defineStore} from "pinia";
+import {createPinia} from "pinia";
+import piniaPersist from "pinia-plugin-persist";
+import {useGlobalConfigStore} from "./modules/globalConfigStore";
 
-export const useZymStore = defineStore("zym", {
-    state: () => {
-        return {
-            counter: 0
-        }
-    }
-})
+const pinia = createPinia()
+pinia.use(piniaPersist)
 
-// @ts-ignore
-export const useWxxStore: any = defineStore("wxx", {
-    state: () => ({
-        counter: 0
-    }),
-    persist: {
-        enabled: true,
-        strategies: [
-            {storage: sessionStorage, paths: ["counter"]}
-        ]
-    },
-    gutters: {
-        doubleCounter(state: any) {
-            return state.counter * 2
-        }
-    }
-})
+export default pinia
+export {useGlobalConfigStore}
