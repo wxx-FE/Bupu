@@ -10,7 +10,6 @@ export default defineComponent({
         let state1 = useWxxStore()
         let userName = ref<string>("wxx")
         let svgColor = ref<string>("")
-        let svgNumber = ref<number>(0)
         setInterval(() => {
             userName.value = faker.name.firstName()
             svgColor.value = faker.color.rgb()
