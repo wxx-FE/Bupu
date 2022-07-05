@@ -1,7 +1,6 @@
 import {defineComponent} from "vue";
 import styles from "./Layout.module.scss"
 import AsideMenu from "./AsideMenu/AsideMenu";
-import {useBupuStore} from "@/store";
 
 export default defineComponent({
     name: "Layout",

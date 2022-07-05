@@ -1,3 +1,5 @@
+import {getCurrentInstance} from "vue";
+
 export function getWatermarkSVGBg(name: string, svgNumber: number, svgSize: number, bgColor?: string) {
     let clientWidth: number = window.innerWidth
     var size: number = clientWidth / svgNumber + svgSize;
@@ -37,4 +39,12 @@ export function getSvgUrl(svg: any): string {
         url += ',' + encodeURIComponent(svg);
     }
     return url;
+}
+
+//导出当前组件的一些静态方法
+export function useExpose(apis: Record<string, any>) {
+    const instance:any = getCurrentInstance()
+    if (instance) {
+        Object.assign(instance.proxy, apis)
+    }
 }

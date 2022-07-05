@@ -1,6 +1,18 @@
-import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
+import {createRouter, createWebHashHistory, Router, RouteRecordRaw} from "vue-router";
 
-const routes: Array<RouteRecordRaw> = [
+const demoRoutes: Array<RouteRecordRaw> = [
+    {
+        path: "/water-mask-demo",
+        name: "WaterMaskDemo",
+        component: import("@/demo/WaterMaskDemo/WaterMaskDemo")
+    },
+    {
+        path: "/monaco-editor-demo",
+        name: "MonacoEditorDemo",
+        component: import("@/demo/MonacoEditorDemo/MonacoEditorDemo")
+    }
+]
+const commonRoutes: Array<RouteRecordRaw> = [
     {
         path: "/login",
         name: "Login",
@@ -8,11 +20,14 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: "/",
-        name: "Layout",
-        component: () => import("@/layout/Layout")
+        name: "Home",
+        component: () => import("@/views/Home/Home")
     }
 ];
-let router = createRouter({
+
+let routes: Array<RouteRecordRaw> = demoRoutes.concat(commonRoutes)
+
+let router: any = createRouter({
     history: createWebHashHistory(),
     routes
 });

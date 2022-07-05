@@ -1,11 +1,11 @@
-import {defineComponent} from "vue"
+import {defineComponent} from "vue";
 
 export default defineComponent({
-    name: "AsideMenu",
+    name: "WaterMaskDemo",
     setup() {
         return {}
     },
     render() {
-        return <el-menu></el-menu>
+        return <div></div>
     }
 })
