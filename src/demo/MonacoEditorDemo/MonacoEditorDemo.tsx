@@ -1,6 +1,5 @@
 import {defineComponent, ref, reactive, watch, onMounted} from "vue"
 import {MonacoEditor} from "@/components/MonacoEditor"
-import styles from "./MonacoEditorDemo.module.scss"
 
 export default defineComponent({
     name: "MonacoEditorDemo",
@@ -239,7 +238,7 @@ export default defineComponent({
         }
     },
     render() {
-        return <div class={styles["demo"]}>
+        return <div class={"demo"}>
             <el-container>
                 <el-main>
                     <MonacoEditor

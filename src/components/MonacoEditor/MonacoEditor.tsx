@@ -30,7 +30,7 @@ const MonacoEditor = defineComponent({
         // 主题
         theme: {
             type: String as PropType<Theme>,
-            default: 'vs-dark',
+            default: 'vs-light',
         },
         //是否只读
         readOnly: {
