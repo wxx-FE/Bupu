@@ -1,16 +1,10 @@
 import {defineComponent, ref, reactive} from "vue"
 import {Router, useRouter} from "vue-router";
-import {MonacoEditor} from "@/components/MonacoEditor"
 
 export default defineComponent({
     name: "Home",
     setup() {
-        let text = ref<string>("")
         let router: Router = useRouter()
-        let monacoConfig: any = reactive({
-            theme: "light",
-            minimap: false
-        })
 
         function routerJumper(name: string) {
             router.push({
@@ -18,22 +12,42 @@ export default defineComponent({
             })
         }
 
+        let buttonList = [
+            {
+                type: "primary",
+                text: "编辑器演示",
+                funC: () => {
+                    routerJumper("MonacoEditorDemo")
+                }
+            },
+            {
+                type: "primary",
+                text: "水印演示",
+                funC: () => {
+                    routerJumper("WaterMaskDemo")
+                }
+            },
+            {
+                type: "primary",
+                text: "过渡动画演示",
+                funC: () => {
+                    routerJumper("AnimateTransitionDemo")
+                }
+            }
+        ]
+
         return {
-            text,
-            monacoConfig,
-            routerJumper
+            buttonList
         }
     },
     render() {
-        return <div>
-            <el-button onClick={() => {
-                this.routerJumper("MonacoEditorDemo")
-            }}>编辑器演示
-            </el-button>
-            <el-button onClick={() => {
-                this.routerJumper("WaterMaskDemo")
-            }}>水印演示
-            </el-button>
+        return <div style={{
+            boxSizing: "border-box",
+            padding: "20px"
+        }}>
+            {this.buttonList.map((item: any) => {
+                return <el-button type={item.type} onClick={item.funC}>{item.text}</el-button>
+            })}
         </div>
     }
 })

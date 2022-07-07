@@ -10,6 +10,11 @@ const demoRoutes: Array<RouteRecordRaw> = [
         path: "/monaco-editor-demo",
         name: "MonacoEditorDemo",
         component: import("@/demo/MonacoEditorDemo/MonacoEditorDemo")
+    },
+    {
+        path: "/animate-transition-demo",
+        name: "AnimateTransitionDemo",
+        component: import("@/demo/AnimateTranisationDemo/AnimateTransitionDemo")
     }
 ]
 const commonRoutes: Array<RouteRecordRaw> = [

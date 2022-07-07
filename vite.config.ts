@@ -1,10 +1,12 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from "@vitejs/plugin-vue-jsx"
+import progress from "vite-plugin-progress"
 import {resolve} from "path"
+import {visualizer} from "rollup-plugin-visualizer"
 
 export default defineConfig({
-    plugins: [vue(), vueJsx()],
+    plugins: [vue(), vueJsx(), progress(), visualizer()],
     resolve: {
         alias: {
             '@': resolve(__dirname, 'src')
@@ -18,13 +20,14 @@ export default defineConfig({
         emptyOutDir: true,
         // 启用 / 禁用 brotli 压缩大小报告
         brotliSize: true,
-        outDir: "../dist",
+        outDir: "./dist",
         minify: 'terser',
         cssCodeSplit: true,
         sourcemap: false,
         rollupOptions: {
             output: {
-                //依赖碎片化打包
+                //依赖碎片化打包cls
+
                 manualChunks(id) {
                     if (id.includes('node_modules')) {
                         return id.toString().split('node_modules/')[1].split("/")[0].toString()

@@ -24,7 +24,7 @@ export default defineComponent({
             }
         ]
         let monacoConfig: any = reactive({
-            theme: "vs-dark",
+            theme: "vs-light",
             language: "javascript",
             readOnly: false,
             lineHeight: 20,

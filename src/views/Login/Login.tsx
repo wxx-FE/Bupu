@@ -11,7 +11,6 @@ import rc7 from "@/assets/bgImg/RC7.jpg"
 import rc8 from "@/assets/bgImg/RC8.jpg"
 import rc9 from "@/assets/bgImg/RC9.jpg"
 import rc10 from "@/assets/bgImg/RC10.jpg"
-import logo from "@/assets/img/login-logo-new.png"
 import {User, Lock} from "@element-plus/icons-vue"
 import {ElMessage} from "element-plus"
 import {useRouter} from "vue-router";
@@ -91,7 +90,7 @@ export default defineComponent({
                 <div class={styles["content"]}>
                     <div class={styles["content-left"]}>
                         <div>
-                            <img src={logo}/>
+                            <img src={""}/>
                         </div>
                     </div>
                     <div class={styles["content-right"]}>
