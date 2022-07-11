@@ -1,7 +1,7 @@
 import {defineComponent, ref} from "vue";
 import {AnimateTransition} from "@/components/AnimateTransition"
 import type {AnimateTransitionType} from "@/components/AnimateTransition/AnimateTransition.type";
-import {MonacoEditor} from "@/components/MonacoEditor";
+
 
 export default defineComponent({
     name: "AnimateTransitionDemo",

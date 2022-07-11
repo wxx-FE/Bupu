@@ -23,7 +23,7 @@
     "save": "^2.5.0",
     "vform3-builds": "^3.0.8",
     "vue": "^3.2.25",
-    "vue-esign": "^1.1.0",
+    "vue-esign": "^1.1.4",
     "vue-router": "4",
     "xgplayer": "^2.31.6",
     "yarn": "^1.22.19"

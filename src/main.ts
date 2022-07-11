@@ -18,8 +18,6 @@ app.use(ElementPlus)
 //路由
 import router from "./router";
 
-console.log(router)
 app.use(router)
-
 
 app.mount('#app')

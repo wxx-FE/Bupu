@@ -33,6 +33,13 @@ export default defineComponent({
                 funC: () => {
                     routerJumper("AnimateTransitionDemo")
                 }
+            },
+            {
+                type: "primary",
+                text: "电子签名演示",
+                funC: () => {
+                    routerJumper("EsignDemo")
+                }
             }
         ]
 

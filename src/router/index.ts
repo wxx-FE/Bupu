@@ -15,6 +15,11 @@ const demoRoutes: Array<RouteRecordRaw> = [
         path: "/animate-transition-demo",
         name: "AnimateTransitionDemo",
         component: import("@/demo/AnimateTranisationDemo/AnimateTransitionDemo")
+    },
+    {
+        path: "/esign-demo",
+        name: "EsignDemo",
+        component: import("@/demo/EsignDemo/EsignDemo")
     }
 ]
 const commonRoutes: Array<RouteRecordRaw> = [
