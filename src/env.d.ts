@@ -11,6 +11,10 @@ declare module "*.scss" {
   export default any;
 }
 
+declare module "*.less" {
+  export default any;
+}
+
 declare module "*.js" {
   export default any;
 }

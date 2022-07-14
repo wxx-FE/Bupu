@@ -1,17 +1,22 @@
-import {defineComponent} from "vue"
-import zhCn from "element-plus/es/locale/lang/zh-cn";
+import {defineComponent, reactive} from "vue"
+import {zhCN, dateZhCN} from "naive-ui";
 
 export default defineComponent({
     name: "App",
     setup() {
         //document.domain = "192.168.1.6"
+        let allConfig = reactive({
+            componentSize: "middle",
+            locale: zhCN,
+            dateLocale: dateZhCN
+        })
         return {
-            locale: zhCn
+            allConfig
         }
     },
     render() {
-        return <el-config-provider locale={this.locale}>
+        return <n-config-provider {...this.allConfig}>
             <router-view></router-view>
-        </el-config-provider>
+        </n-config-provider>
     }
 })
