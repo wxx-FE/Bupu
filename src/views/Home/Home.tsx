@@ -40,7 +40,15 @@ export default defineComponent({
                 funC: () => {
                     routerJumper("EsignDemo")
                 }
+            },
+            {
+                type: "primary",
+                text: "高阶组件演示",
+                funC: () => {
+                    routerJumper("ZymHocDemo")
+                }
             }
+
         ]
 
         return {
