@@ -18,5 +18,6 @@ export default defineComponent({
         return <n-config-provider {...this.allConfig}>
             <router-view></router-view>
         </n-config-provider>
+
     }
 })

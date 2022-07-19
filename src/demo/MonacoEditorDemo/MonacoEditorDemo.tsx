@@ -9,10 +9,36 @@ export default defineComponent({
             show: false,
             config: ""
         })
-        let allConfig = ref<string>("")
         let monacoEditor: any = ref(null)
-        let languageList = ["json", "html", "css", "javascript", "typescript"]
-        let themeList = ["vs-dark", "vs-light"]
+        let languageList = [
+            {
+                label: "json",
+                value: "json"
+            },
+            {
+                label: "html",
+                value: "html"
+            },
+            {
+                label: "css",
+                value: "css"
+            },
+            {
+                label: 'javascript',
+                value: "javascript"
+            },
+            {
+                label: "typescript",
+                value: "typescript"
+            }
+        ]
+        let themeList = [{
+            label: "vs-dark",
+            value: "vs-dark"
+        }, {
+            label: "vs-light",
+            value: "vs-light"
+        }]
         let lineNumbersList = [
             {
                 label: "显示",
@@ -239,68 +265,61 @@ export default defineComponent({
     },
     render() {
         return <div class={"demo"}>
-            <el-container>
-                <el-main>
+            <n-layout has-sider>
+                <n-layout-content content-style={{padding: "15px"}}>
                     <MonacoEditor
                         ref={"monacoEditor"}
                         style={{border: "1px solid rgba(0,0,0,.1)"}}
                         {...this.monacoConfig}
                         v-model={this.text}>
                     </MonacoEditor>
-                </el-main>
-                <el-aside width={"320px"} style={{padding: "10px"}}>
-                    <el-divider>配置信息</el-divider>
-                    <el-form model={this.monacoConfig} label-position={"left"} label-width={"auto"}>
-                        <el-form-item label={"是否只读"}>
-                            <el-switch v-model={this.monacoConfig.readOnly}></el-switch>
-                        </el-form-item>
-                        <el-form-item label={"预览图"}>
-                            <el-switch v-model={this.monacoConfig.minimap.enabled}></el-switch>
-                        </el-form-item>
-                        <el-form-item label={"行高"}>
-                            <el-input-number min={0} v-model={this.monacoConfig.lineHeight}></el-input-number>
-                        </el-form-item>
-                        <el-form-item label={"字体大小"}>
-                            <el-input-number min={0} v-model={this.monacoConfig.fontSize}></el-input-number>
-                        </el-form-item>
-                        <el-form-item label={"行号间距"}>
-                            <el-input-number min={0} v-model={this.monacoConfig.lineDecorationsWidth}></el-input-number>
-                        </el-form-item>
-                        <el-form-item label={"光标宽度"}>
-                            <el-input-number min={0} v-model={this.monacoConfig.cursorWidth}></el-input-number>
-                        </el-form-item>
-                        <el-form-item label={"语言"}>
-                            <el-select v-model={this.monacoConfig.language}>
-                                {this.languageList.map((item: string) => {
-                                    return <el-option label={item} value={item}></el-option>
-                                })}
-                            </el-select>
-                        </el-form-item>
-                        <el-form-item label={"主题"}>
-                            <el-select v-model={this.monacoConfig.theme}>
-                                {this.themeList.map((item: string) => {
-                                    return <el-option label={item} value={item}></el-option>
-                                })}
-                            </el-select>
-                        </el-form-item>
-
-                        <el-form-item label={"行号"}>
-                            <el-select v-model={this.monacoConfig.lineNumbers}>
-                                {this.lineNumbersList.map((item: any) => {
-                                    return <el-option label={item.label} value={item.value}></el-option>
-                                })}
-                            </el-select>
-                        </el-form-item>
-                        <el-button onClick={this.showConfig} type={"primary"}>查看配置</el-button>
-                    </el-form>
-                </el-aside>
-            </el-container>
-            <el-drawer title={"当前配置信息"} v-model={this.monacoEditorConfig.show}>
-                <MonacoEditor v-model={this.monacoEditorConfig.config}
-                              readOnly={true}
-                              language={"json"}>
-                </MonacoEditor>
-            </el-drawer>
+                </n-layout-content>
+                <n-layout-sider width={"320px"} content-style={{padding: "15px"}}>
+                    <n-divider>配置信息</n-divider>
+                    <n-form model={this.monacoConfig} label-position={"left"} label-width={"auto"}>
+                        <n-form-item label={"是否只读"}>
+                            <n-switch v-model:value={this.monacoConfig.readOnly}></n-switch>
+                        </n-form-item>
+                        <n-form-item label={"预览图"}>
+                            <n-switch v-model:value={this.monacoConfig.minimap.enabled}></n-switch>
+                        </n-form-item>
+                        <n-form-item label={"行高"}>
+                            <n-input-number min={0} v-model:value={this.monacoConfig.lineHeight}></n-input-number>
+                        </n-form-item>
+                        <n-form-item label={"字体大小"}>
+                            <n-input-number min={0} v-model:value={this.monacoConfig.fontSize}></n-input-number>
+                        </n-form-item>
+                        <n-form-item label={"行号间距"}>
+                            <n-input-number min={0}
+                                            v-model:value={this.monacoConfig.lineDecorationsWidth}></n-input-number>
+                        </n-form-item>
+                        <n-form-item label={"光标宽度"}>
+                            <n-input-number min={0} v-model:value={this.monacoConfig.cursorWidth}></n-input-number>
+                        </n-form-item>
+                        <n-form-item label={"语言"}>
+                            <n-select v-model:value={this.monacoConfig.language} options={this.languageList}>
+                            </n-select>
+                        </n-form-item>
+                        <n-form-item label={"主题"}>
+                            <n-select v-model:value={this.monacoConfig.theme} options={this.themeList}>
+                            </n-select>
+                        </n-form-item>
+                        <n-form-item label={"行号"}>
+                            <n-select v-model:value={this.monacoConfig.lineNumbers} options={this.lineNumbersList}>
+                            </n-select>
+                        </n-form-item>
+                        <n-button onClick={this.showConfig} type={"primary"}>查看配置</n-button>
+                    </n-form>
+                </n-layout-sider>
+            </n-layout>
+            <n-drawer title={"当前配置信息"} width={500} v-model:show={this.monacoEditorConfig.show}>
+                <n-drawer-content title={"当前配置信息"}>
+                    <MonacoEditor v-model={this.monacoEditorConfig.config}
+                                  readOnly={true}
+                                  language={"json"}>
+                    </MonacoEditor>
+                </n-drawer-content>
+            </n-drawer>
         </div>
     }
 })

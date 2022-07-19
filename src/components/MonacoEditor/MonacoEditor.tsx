@@ -194,7 +194,6 @@ const MonacoEditor = defineComponent({
 
         //监听props变化 主要修改配置信息
         watch([() => props.theme, () => props.readOnly, () => props.language, () => props.lineHeight, () => props.fontSize, () => props.lineNumbers, () => props.lineDecorationsWidth, () => props.cursorWidth, props.minimap], (newVal, oldVal) => {
-            ElMessage.success("重新设置")
             createMonacoInstance()
         })
 

@@ -44,15 +44,13 @@ const directives: any = {
             y = y || 0
             el.style.left = x + "px"
             el.style.top = y + "px"
-
-            //el.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
         }
 
         if (/(iPhone|iPad|iPod|iOS|Android|Linux armv8l|Linux armv7l|Linux aarch64)/i.test(navigator.platform) || /(mobile)/i.test(navigator.userAgent.toLowerCase())) {
             //记录当前的坐标，实时更新
             let currentPoint: Point = {
-                x: 0,
-                y: 0
+                x: el.offsetLeft || 0,
+                y: el.offsetTop || 0
             }
             //记录刚刚摁下时的坐标
             let startPoint: Point = {

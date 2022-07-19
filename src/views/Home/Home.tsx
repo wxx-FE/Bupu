@@ -1,5 +1,6 @@
 import {defineComponent, ref, reactive} from "vue"
 import {Router, useRouter} from "vue-router";
+import Layout from "@/layout/Layout"
 
 export default defineComponent({
     name: "Home",
@@ -21,7 +22,7 @@ export default defineComponent({
                 }
             },
             {
-                type: "primary",
+                type: "info",
                 text: "水印演示",
                 funC: () => {
                     routerJumper("WaterMaskDemo")
@@ -56,13 +57,6 @@ export default defineComponent({
         }
     },
     render() {
-        return <div style={{
-            boxSizing: "border-box",
-            padding: "20px"
-        }}>
-            {this.buttonList.map((item: any) => {
-                return <el-button type={item.type} onClick={item.funC}>{item.text}</el-button>
-            })}
-        </div>
+        return <Layout></Layout>
     }
 })
