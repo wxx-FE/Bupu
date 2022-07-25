@@ -1,6 +1,6 @@
 import {defineComponent, h, Component} from "vue";
 import styles from "./Layout.module.scss"
-import AsideMenu from "./AsideMenu/AsideMenu.vue";
+import AsideMenu from "./AsideMenu/AsideMenu";
 
 export default defineComponent({
     name: "Layout",

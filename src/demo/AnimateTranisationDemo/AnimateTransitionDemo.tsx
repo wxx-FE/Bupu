@@ -1,7 +1,6 @@
-import {defineComponent, ref} from "vue";
+import {defineComponent, onMounted, ref, inject} from "vue";
 import {AnimateTransition} from "@/components/AnimateTransition"
-import type {AnimateTransitionType} from "@/components/AnimateTransition/AnimateTransition.type";
-
+import type {AnimateTransitionType} from "@/components/AnimateTransition/AnimateTransition.type"
 
 export default defineComponent({
     name: "AnimateTransitionDemo",
@@ -9,13 +8,11 @@ export default defineComponent({
         let isExist = ref<boolean>(true)
         let isShow = ref<boolean>(true)
 
-
         setInterval(() => {
             isShow.value = !isShow.value
         }, 3000)
 
         let transitionList: Array<AnimateTransitionType> = ["bounce", "fade", "flip", "lightSpeed", "rotate", "slide", "roll"]
-
 
         return {
             isExist,

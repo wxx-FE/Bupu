@@ -1,6 +1,6 @@
-import {defineComponent, reactive} from "vue"
-import {zhCN, dateZhCN} from "naive-ui";
-
+import {defineComponent, reactive,provide,watch} from "vue"
+import {zhCN, dateZhCN,useLoadingBar} from "naive-ui";
+import {useRoute} from "vue-router";
 export default defineComponent({
     name: "App",
     setup() {
@@ -16,7 +16,9 @@ export default defineComponent({
     },
     render() {
         return <n-config-provider {...this.allConfig}>
-            <router-view></router-view>
+            <n-loading-bar-provider>
+                <router-view></router-view>
+            </n-loading-bar-provider>
         </n-config-provider>
 
     }

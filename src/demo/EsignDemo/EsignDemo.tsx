@@ -36,7 +36,7 @@ export default defineComponent({
 
 
         onMounted(() => {
-            console.log(esignInstance.value)
+
         })
 
         return {
